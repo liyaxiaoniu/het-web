@@ -5,7 +5,6 @@ const { webpack, WebpackDevServer, chalk } = require('@rg-wp/config')
 
 const compiler = webpack(config)
 
-// WebpackDevServer.addDevServerEntrypoints(config, devServerConfig)
 const devServer = new WebpackDevServer(compiler, devServerConfig)
 
 const PORT = 3000

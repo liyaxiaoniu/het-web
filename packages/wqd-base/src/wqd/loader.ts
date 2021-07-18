@@ -48,9 +48,12 @@ async function loaderProdAssets(lcProps: LcProps) {
   // 加载入口资源
   const promises: Promise<any>[] = []
   entrypointFiles.forEach((file: string) => {
-    if (file.substr(-3) === 'css') return
     const src = `${url}/${file}`
-    promises.push(loaderFile(src))
+    if (file.substr(-3) === 'css') {
+      promises.push(loaderCssFile(src))
+    } else {
+      promises.push(loaderFile(src))
+    }
   })
   await Promise.all(promises)
 
@@ -153,5 +156,33 @@ function loaderFile(src: string) {
         res(true)
       }
     })
+  })
+}
+
+/**
+ * 加载css文件
+ * @param src 文件路径
+ * @returns
+ */
+function loaderCssFile(src: string) {
+  return new Promise((res) => {
+    const linkTag = document.createElement('link')
+    linkTag.rel = 'stylesheet'
+    linkTag.type = 'text/css'
+    const onLinkComplete = (event: Event) => {
+      // avoid mem leaks.
+      linkTag.onerror = linkTag.onload = null
+      if (event.type === 'load') {
+        res(true)
+      } else {
+        console.error(`加载css文件 ${src} 失败.`)
+        document.head.removeChild(linkTag)
+        res(false)
+      }
+    }
+    linkTag.href = src
+    // @ts-ignore
+    linkTag.onerror = linkTag.onload = onLinkComplete
+    document.head.appendChild(linkTag)
   })
 }

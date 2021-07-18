@@ -7,9 +7,13 @@
     "koa2-cors": "^2.0.6"
   },
   "scripts": {
-    "start": "nodemon ./src/index.js"
+    "vendor": "node ./src/vendor",
+    "base": "node ./src/base",
+    "app1": "node ./src/app1",
+    "demo": "node ./src/demo"
   },
   "devDependencies": {
+    "chalk": "^3.0.0",
     "koa": "^2.13.1",
     "koa-conditional-get": "^3.0.0",
     "koa-etag": "^4.0.0",

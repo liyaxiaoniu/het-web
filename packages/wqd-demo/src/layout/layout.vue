@@ -3,7 +3,6 @@
     <div class="sidebar-container" ref="sidebarContainer">
       <sidebar />
     </div>
-
     <div class="main-container" ref="mainContainer">
       <div class="top-fix-container" ref="topFix">
         <navbar />

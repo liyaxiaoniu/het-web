@@ -11,15 +11,16 @@ window.__singleSpa__ = singleSpa
 const apps = [
   {
     name: 'app1',
-    // url: 'http://localhost:1992', // 生产环境
-    url: 'http://localhost:8000', // 开发环境
+    isDev: true,
+    url: 'http://localhost:8001', // 生产环境
+    // url: 'http://localhost:8000', // 开发环境
     activeWhen: '/app1',
-    // loader: import(`app1@http://localhost:8000`),
   },
   {
     name: 'demo',
-    // url: 'http://localhost:1992', // 生产环境
-    url: 'http://localhost:9000', // 开发环境
+    isDev: true,
+    url: 'http://localhost:9001', // 生产环境
+    // url: 'http://localhost:9000', // 开发环境
     activeWhen: '/demo',
 
     // loader: import(`app1@http://localhost:8000`),

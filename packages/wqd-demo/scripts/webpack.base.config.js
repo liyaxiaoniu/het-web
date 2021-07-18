@@ -48,7 +48,7 @@ const config = {
     rules: [
       {
         test: /\.(ts|tsx)$/,
-        use: [babelloader, getTsLoader({})],
+        use: [babelloader, getTsLoader()],
       },
       {
         test: /\.(js|jsx)$/,
@@ -59,7 +59,7 @@ const config = {
   plugins: [],
 }
 
-useCssLess(config)
+useCssLess(config, { isMiniCss: true })
 useOutput(config)
 useVue2(config)
 useImg(config)

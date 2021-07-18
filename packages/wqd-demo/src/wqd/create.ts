@@ -1,6 +1,6 @@
 import { RgRouterView, init as routerInit } from '@/router'
 import Vue from 'vue'
-import Layout from '../layout/index.vue'
+import Layout from '../layout'
 export async function create(lcProps: LcProps) {
   Vue.config.productionTip = false
   const router = routerInit(lcProps) // 初始化路由
