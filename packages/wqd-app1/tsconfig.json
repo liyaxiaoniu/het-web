@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": false,
+    "types": [
+      "webpack-env"  
+    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "lib": [
+      "dom",
+      "esnext"
+    ]
+  },
+  "include": [
+    "types/*.d.ts",
+    "src/**/*.ts",
+    "packages/**/*.ts",
+
+    // "src/**/*.tsx",
+    // "tests/node_modules/cypress/types/**/*.d.ts",
+    "tests/node_modules/**/*.d.ts",
+    "tests/**/*.ts",
+    // "tests/**/*.tsx",
+    //
+ ],
+  "exclude": [
+    "dist",
+    "public",
+    "doc",
+  ]
+}

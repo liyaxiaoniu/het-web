@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "allowJs": false,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "noUnusedLocals": true,
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "importHelpers": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+
+    // "declaration": true,
+    // "declarationDir": "./types"
+  },
+  "include": [
+    "types/shims-global.d.ts",
+    "types/shims-index.d.ts",
+    "types/shims-assets.d.ts",
+
+    "src/**/*.ts", 
+    "src/**/*.tsx",
+    "packages/**/*.ts",
+    "packages/**/*.tsx",
+    // "src"
+  ],
+  "exclude": ["dist"]
+}

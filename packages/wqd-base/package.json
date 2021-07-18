@@ -1,0 +1,24 @@
+{
+  "name": "@rg-wqd/base",
+  "version": "1.0.0",
+  "private": true,
+  "description": "微前端基座应用",
+  "license": "MIT",
+  "author": "rg",
+  "scripts": {
+    "dev": "node --trace-deprecation scripts/dev/index.js",
+    "build": "node --trace-deprecation scripts/build/index.js"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.19",
+    "@types/lodash": "^4.14.168",
+    "@types/webpack-env": "^1.16.0",
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "@rg-wp/config": "file:../wp-config",
+    "@rg-wp/share": "file:../wp-share",
+    "single-spa": "^5.9.3",
+    "vue": "^2.6.14"
+  }
+}

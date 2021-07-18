@@ -1,0 +1,23 @@
+{
+  "name": "@rg-wqd/vendor",
+  "version": "1.0.0",
+  "main": "dist/loader.development.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run clean && npm run  copy && npm run build:dev ",
+    "build:dev": "node scripts/build/index.dev.js",
+    "build:pro": "node scripts/build/index.pro.js",
+    "copy": "node scripts/copy/index.js",
+    "clean": "node scripts/clean/index.js"
+  },
+  "dependencies": {
+    "@rg-wp/config": "file:../wp-config",
+    "@rg-wp/share": "file:../wp-share",
+    "axios": "^0.21.1",
+    "element-ui": "^2.15.3",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.2"
+  }
+}

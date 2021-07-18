@@ -1,0 +1,60 @@
+{
+    // ${workspaceRoot} 当前打开的文件夹的绝对路径+文件夹的名字
+    // ${workspaceRootFolderName} ? 当前打开的文件夹的名字
+    // ${file} 当前打开正在编辑的文件名，包括绝对路径，文件名，文件后缀名
+    // ${fileBasename} 当前打开的文件名+后缀名，不包括路径
+    // ${fileBasenameNoExtension} 当前打开的文件的文件名，不包括路径和后缀名
+    // ${fileDirname} 当前打开的文件所在的绝对路径，不包括文件名
+    // ${fileExtname} 当前打开的文件的后缀名
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    // "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "curFile",
+            "type": "node",
+            "request": "launch",
+            "program": "${file}",
+            // "runtimeExecutable": "/usr/local/Cellar/node/16.2.0/bin/node"
+            // "program": "${fileDirname}/${fileBasenameNoExtension}.ts",
+            // "outFiles": ["${fileDirname}/${fileBasenameNoExtension}.js"]
+        },
+        {
+            "name": "Current TS File",
+            "type": "node",
+            "request": "launch",
+            "args": [
+                "${relativeFile}"
+            ],
+            "runtimeArgs": [
+                "--nolazy",
+                "-r",
+                "ts-node/register"
+            ],
+            "sourceMaps": true,
+            "cwd": "${workspaceRoot}",
+            "protocol": "inspector",
+            "console": "integratedTerminal",
+            "runtimeExecutable": "/usr/local/Cellar/node/16.2.0/bin/node",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "调试ts",
+            "program": "${file}",
+            // "preLaunchTask": "tsc: build - tsconfig.json",
+            "outFiles": [
+                "${workspaceFolder}/out/**/*.js"
+            ],
+            "runtimeExecutable": "/usr/local/Cellar/node/16.2.0/bin/node",
+
+        },
+        {
+            "name": "test",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/dist/test.js"
+        }
+    ]
+}
