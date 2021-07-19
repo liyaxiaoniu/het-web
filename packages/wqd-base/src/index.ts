@@ -1,11 +1,9 @@
 import './styles/index.less'
-
 import { asyncInit } from './main'
 
 import { init as wqdInit } from './wqd'
 import { navigateToUrl } from 'single-spa'
 import { fetchVendor } from './vendor'
-
 main()
 
 async function main() {
@@ -18,4 +16,6 @@ async function main() {
   start({ urlRerouteOnly: true })
   // 默认进入项目1
   if (location.pathname === '/') navigateToUrl('/demo')
+
+  // import('./test')
 }

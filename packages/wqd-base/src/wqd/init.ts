@@ -8,22 +8,17 @@ import { createWindowProxy } from './helper'
 window.__rg_wqd__ = true // 微前端标志, 用于给子应用使用
 window.__singleSpa__ = singleSpa
 
+//  `wqd_vendor@http://localhost:4000/__wqd_vendor__.js?t=3243424`
 const apps = [
   {
     name: 'app1',
-    isDev: true,
-    url: 'http://localhost:8001', // 生产环境
-    // url: 'http://localhost:8000', // 开发环境
-    activeWhen: '/app1',
+    // url: 'http://localhost:8001', // 生产环境
+    url: 'http://localhost:8000', // 开发环境
   },
   {
     name: 'demo',
-    isDev: true,
-    url: 'http://localhost:9001', // 生产环境
-    // url: 'http://localhost:9000', // 开发环境
-    activeWhen: '/demo',
-
-    // loader: import(`app1@http://localhost:8000`),
+    // url: 'http://localhost:9001', // 生产环境
+    url: 'http://localhost:9000', // 开发环境
   },
 ]
 /**
@@ -33,9 +28,10 @@ const apps = [
  */
 export async function init(contentEl: HTMLDivElement) {
   apps.forEach((config) => {
-    const { name, url, activeWhen } = config
-    const globelKey = `${name}_window` // window对象的代理
-    const win = (window[globelKey] = createWindowProxy())
+    const { name, url } = config
+    const win = (window[`${name}_window`] = createWindowProxy()) // window对象的代理
+
+    const activeWhen = `/${name}`
     const customProps = {
       activeWhen,
       url,
