@@ -5,12 +5,7 @@
   "repository": "",
   "private": true,
   "scripts": {
-    "server": "cd scripts/server && npm run start",
-    "build:vendor": "cd packages/wqd-vendor && npm run build",
-    "copy:vendor": "node scripts/copy/copy_vendor.js",
-    "copy:base": "node scripts/copy/copy_base.js",
-    "clean": "node scripts/clean",
-
+   
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "rogen",

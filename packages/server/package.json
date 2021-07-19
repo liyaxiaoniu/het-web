@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "koa2-cors": "^2.0.6"
+  },
+  "scripts": {
+    "config-helper": "node ./src/config-helper",
+    "vendor": "node ./src/vendor",
+    "base": "node ./src/base",
+    "app1": "node ./src/app1",
+    "demo": "node ./src/demo"
+  },
+  "devDependencies": {
+    "chalk": "^3.0.0",
+    "koa": "^2.13.1",
+    "koa-conditional-get": "^3.0.0",
+    "koa-etag": "^4.0.0",
+    "koa-static": "^5.0.0",
+    "koa2-connect-history-api-fallback": "^0.1.3",
+    "nodemon": "^2.0.7"
+  }
+}

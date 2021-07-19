@@ -8,7 +8,7 @@ import { createInstance } from './setting-view'
 function wqdTrigger(key = 'open', ...args) {
   switch (key) {
     case 'init': {
-      init(args[0])
+      init(...args)
     }
   }
 }

@@ -6,11 +6,8 @@
   "main": "",
   "license": "MIT",
   "scripts": {
-    "build": "npm run clean && npm run  copy && npm run build:dev ",
-    "build:dev": "node scripts/build/index.dev.js",
-    "build:pro": "node scripts/build/index.pro.js",
-    "copy": "node scripts/copy/index.js",
-    "clean": "node scripts/clean/index.js"
+    "dev": "node scripts/dev",
+    "build": "node scripts/build"
   },
   "dependencies": {
     "@rg-wp/config": "file:../wp-config",

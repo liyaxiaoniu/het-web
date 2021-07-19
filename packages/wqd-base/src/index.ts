@@ -17,5 +17,5 @@ async function main() {
   // 默认进入项目1
   if (location.pathname === '/') navigateToUrl('/demo')
 
-  // import('./test')
+  require('./config-helper')
 }
