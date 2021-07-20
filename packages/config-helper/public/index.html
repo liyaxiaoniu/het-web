@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="favicon.ico">
+  <!-- <link rel="stylesheet" type="text/css" href="/index.css"> -->
+  <style>
+    body{
+      height: 100vh ;
+      width: 100vw ;
+    }
+
+  </style>
+  <title>
+    开发辅助
+  </title>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+
+  <script  src='http://localhost:4000/__wqd_vendor__.js'></script> 
+<script>
+  wqd_vendor.get('./vue').then(vueModule=>{
+    const Vue  = vueModule().default 
+    // console.log(vue );
+    window.onload = () =>{
+      // window.wqdTrigger('init', null , Vue)
+      const instance = window.wqdTrigger('create' , Vue)
+      instance.show()
+    }
+  })
+</script>
+  <!-- <script defer src='/vendor/loader.development.js'></script> -->
+  <!-- built files will be auto injected -->
+</body>
+
+</html>

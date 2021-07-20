@@ -4,7 +4,8 @@ import Main from './main'
  * 创建vue实例
  * @returns
  */
-export function createInstance(Vue = window.__vendor__.vue) {
+export function createInstance(Vue) {
+  if (!Vue) Vue = window.__vendor__.vue
   const el = document.createElement('div')
   document.body.append(el)
 

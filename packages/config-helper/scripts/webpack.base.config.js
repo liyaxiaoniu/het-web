@@ -10,7 +10,7 @@ const { useResolve } = require('@rg-wp/config/rg-resolve')
 // const { useExternals } = require('@rg-wp/config/rg-externals')
 const {
   useDefinePlugin,
-  // useHtmlPlugin, //
+  useHtmlPlugin, //
   // useBundleAnalyzerPlugin,
   // useManifestPlugin,
 } = require('@rg-wp/config/rg-plugins')
@@ -42,7 +42,7 @@ useImg(config)
 
 useResolve(config)
 // useExternals(config)
-// useHtmlPlugin(config)
+useHtmlPlugin(config)
 useDefinePlugin(config)
 
 // console.log('config', config)
