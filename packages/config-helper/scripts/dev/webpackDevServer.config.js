@@ -1,8 +1,8 @@
-const { appDist } = require('@rg-wp/share')
+const { appDist, appPublic } = require('@rg-wp/share')
 
 module.exports = {
   compress: true,
-  contentBase: [appDist],
+  contentBase: [appDist, appPublic],
   // disableHostCheck: true,
 
   // hot: true,

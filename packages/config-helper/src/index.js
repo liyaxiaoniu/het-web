@@ -33,12 +33,11 @@ function init(el, Vue) {
   if (instance) return
   const target = el || document
   target.ondblclick = (e) => {
-    console.log(e.shiftKey)
+    // console.log(e.shiftKey)
     if (e.shiftKey) {
       e.preventDefault() //阻止默认行为
       if (!instance) instance = createInstance(Vue)
-      // instance.show()
-      // 其他代码
+      instance.show()
     }
   }
   //TODO:  开发调试
