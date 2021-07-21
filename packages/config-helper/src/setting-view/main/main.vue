@@ -4,29 +4,8 @@
       <div class="scroll">
         <div>
           <div>
-            <rg-form-item label='后台环境' >
-              <rg-radio 
-                name='env' 
-                v-for="item in envList" 
-                :key="item.value" 
-                :text='`${item.value }( ${item.text} )`' 
-                :value='item.value' 
-                :checked="env===item.value"
-                @change="hanlderChange" />
-            </rg-form-item>
-            <h1>账号密码设置</h1>
-            <div >
-              <rg-form-item label='账号' >
-                <rg-input ></rg-input>
-              </rg-form-item>
-              <rg-form-item label='密码' >
-                <rg-input ></rg-input>
-              </rg-form-item>
-              <rg-form-item label='备注' >
-                <rg-input ></rg-input>
-              </rg-form-item>
-            </div>
-            
+            <EnvConfig ref="envConfig"></EnvConfig>
+            <acc-cfg ref="accCfg"></acc-cfg>
           </div>
         </div>
       </div>
@@ -40,54 +19,47 @@
   </div>
 </template>
 
-<script lang='js'>
+<script lang="js">
 import { getState, saveState  } from "@/store";
 import RgFormItem from '@/components/form-item'
 import RgInput from '@/components/input'
 import RgRadio from '@/components/radio'
+import RgTitleBlock from "@/components/title-block";
+
 import RgCheckbox from '@/components/checkbox'
+import EnvConfig  from "./components/env-config";
+import AccCfg  from "./components/acc-cfg";
 
 export default {
   name: 'rg-main',
   components : {
-    RgFormItem , 
-    RgInput,
-    RgRadio,
-    RgCheckbox,
+    AccCfg,
+    EnvConfig,
+    // RgFormItem ,
+    // RgInput,
+    // RgTitleBlock,
+    // RgCheckbox,
   },
   created(){
-    this.envList = [
-      {value: 'fat1', text: 'http://192.36.3.4' },
-      {value: 'fat2',text: 'http://192.36.3.4' },
-      {value: 'fat3', text: 'http://192.36.3.4'},
-      {value: "fat4",text: 'http://192.36.3.4' },
-      {value: 'dev1', text: 'http://192.36.3.4'},
-      {value: 'dev2', text: 'http://192.36.3.4'},
-      {value: 'dev3', text: 'http://192.36.3.4'},
-    ]
-    const state = getState()
-    
-    this.env = state.env || ''
-  }, 
+
+
+  },
   data() {
     return {
       isShow: false,
     }
   },
-  
+
   methods: {
-    hanlderChange(value ){
-    
-      this.env = value 
-    },
-    
-    
+
+
+
     handlerClickConfirm() {
-      console.log(this.env );
+      const {envConfig} = this.$refs
+      // console.log(this.env );
       saveState({
-        env: this.env 
+        ...envConfig.getParams(),
       })
-      // this.isShow = false
     },
     handlerClickCancel() {
       this.isShow = false
@@ -121,7 +93,7 @@ export default {
 .scroll {
   height: 100%;
   overflow-y: scroll;
-  padding:  10px ;
+  padding: 10px;
 }
 .bottom {
   position: absolute;
